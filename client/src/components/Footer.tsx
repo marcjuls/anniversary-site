@@ -1,11 +1,11 @@
-import React from "react";
-
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
-    <footer style={{ textAlign: "center", marginTop: "50px" }}>
-      <p>Made with ❤️ for April 6</p>
+    <footer className="footer">
+      <div className="container footer__inner">
+        <p>Made with love, only for you ❤️</p>
+      </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
