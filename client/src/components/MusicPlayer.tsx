@@ -144,9 +144,7 @@ const MusicPlayer = () => {
         <div className="music-card">
           <p className="section-tag">Our playlist</p>
           <h2 className="section-title">{currentSong.title}</h2>
-          <p className="music-text">
-            Now she can switch between your songs using previous and next.
-          </p>
+          <p className="music-text"></p>
 
           <div className="music-actions">
             <button
