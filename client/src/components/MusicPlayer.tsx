@@ -95,10 +95,7 @@ const MusicPlayer = () => {
         <div className="music-card">
           <p className="section-tag">Our song</p>
           <h2 className="section-title">Balisong</h2>
-          <p className="music-text">
-            I made this section sweeter and more reliable so the song can start
-            properly. If your browser blocks autoplay, one tap will wake it up.
-          </p>
+          <p className="music-text"></p>
 
           <div className="music-actions">
             <button
