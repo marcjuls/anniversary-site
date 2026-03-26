@@ -9,7 +9,7 @@ const MusicPlayer = () => {
   const audioSrc = useMemo(
     () =>
       encodeURI(
-        `${import.meta.env.BASE_URL}audio/Rico Blanco - Balisong (Lyrics).mp3`,
+        `${import.meta.env.BASE_URL}audio/Rico Blanco - Balisong Transformed 2016`,
       ),
     [],
   );
