@@ -1,9 +1,9 @@
-import './App.css'
-import Hero from './components/Hero'
-import Timeline from './components/Timeline'
-import LoveLetter from './components/LoveLetter'
-import MusicPlayer from './components/MusicPlayer'
-import Footer from './components/Footer'
+import "./App.css";
+import Hero from "./components/Hero";
+import Timeline from "./components/Timeline";
+import LoveLetter from "./components/LoveLetter";
+import MusicPlayer from "./components/MusicPlayer";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <MusicPlayer />
       <Footer />
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
