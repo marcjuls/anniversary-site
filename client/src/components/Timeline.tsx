@@ -1,30 +1,30 @@
 type Memory = {
-  title: string
-  description: string
-}
+  title: string;
+  description: string;
+};
 
 const memories: Memory[] = [
   {
-    title: 'The first hello',
+    title: "December 11, 2024",
     description:
-      'The moment everything started, even if we did not know yet how important it would become.',
+      "The moment everything started, even if we did not know yet how important it would become.",
   },
   {
-    title: 'The first real memory',
+    title: "April 6, 2025",
     description:
-      'A simple moment that turned into something unforgettable because it was with you.',
+      "A simple moment that turned into something unforgettable because it was with you.",
   },
   {
-    title: 'The comfort stage',
+    title: "The comfort stage",
     description:
-      'When laughter felt easier, conversations became deeper, and you started feeling like home.',
+      "When laughter felt easier, conversations became deeper, and you started feeling like home.",
   },
   {
-    title: 'Still choosing you',
+    title: "Still choosing you",
     description:
-      'Every day since then has just made my heart more sure about you.',
+      "Every day since then has just made my heart more sure about you.",
   },
-]
+];
 
 const Timeline = () => {
   return (
@@ -44,7 +44,7 @@ const Timeline = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Timeline
+export default Timeline;

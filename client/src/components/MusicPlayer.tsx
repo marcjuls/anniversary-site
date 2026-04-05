@@ -2,16 +2,16 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const songs = [
   {
-    title: "Prettiest Thing I've Ever Seen",
-    file: "LANY - Prettiest Thing I've Ever Seen (LYRICS).mp3",
+    title: "blue",
+    file: "blue.mp3",
   },
   {
     title: "Balisong Transformed 2016",
     file: "Rico Blanco - Balisong Transformed 2016.mp3",
   },
   {
-    title: "Last Forever",
-    file: "LANY - Last Forever (Official Music Video).mp3",
+    title: "Here With Me ",
+    file: "d4vd - Here With Me (Lyrics).mp3",
   },
 ];
 
