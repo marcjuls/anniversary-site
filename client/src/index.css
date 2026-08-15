@@ -1,104 +1,107 @@
-:root {
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color: #fff8fc;
-  background: #180512;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wdth,wght@75..100,400..700&family=Italiana&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-midnight: #170d18;
+  --color-wine: #6e294c;
+  --color-rose: #e978a2;
+  --color-blush: #f6d9e5;
+  --color-pearl: #fff9fc;
+
+  --font-display: "Italiana", Georgia, serif;
+  --font-sans: "Instrument Sans", system-ui, sans-serif;
+  --font-utility: "IBM Plex Mono", monospace;
+
+  --animate-rise-in: rise-in 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-photo-drift: photo-drift 7s ease-in-out infinite;
+  --animate-memory-ribbon: memory-ribbon 42s linear infinite;
+  --animate-record-spin: record-spin 8s linear infinite;
 }
 
-* {
-  box-sizing: border-box;
+@layer base {
+  :root {
+    font-family: var(--font-sans);
+    color: var(--color-pearl);
+    background: var(--color-midnight);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 1rem;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: var(--color-midnight);
+  }
+
+  button,
+  a,
+  audio {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  img {
+    user-select: none;
+  }
+
+  ::selection {
+    color: var(--color-midnight);
+    background: var(--color-rose);
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  position: relative;
-  color: #fff8fc;
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(255, 166, 214, 0.24),
-      transparent 26%
-    ),
-    radial-gradient(
-      circle at top right,
-      rgba(206, 148, 255, 0.18),
-      transparent 24%
-    ),
-    linear-gradient(180deg, #2d0828 0%, #1d061a 42%, #140510 100%);
-}
-
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  width: 28rem;
-  height: 28rem;
-  border-radius: 999px;
-  filter: blur(80px);
-  opacity: 0.45;
-  pointer-events: none;
-  z-index: 0;
-}
-
-body::before {
-  top: -10rem;
-  left: -6rem;
-  background: rgba(255, 109, 178, 0.24);
-  animation: blobFloat 20s ease-in-out infinite;
-}
-
-body::after {
-  right: -8rem;
-  bottom: -12rem;
-  background: rgba(176, 123, 255, 0.2);
-  animation: blobFloat 24s ease-in-out infinite reverse;
-}
-
-#root {
-  position: relative;
-  z-index: 1;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-::selection {
-  background: rgba(255, 162, 212, 0.36);
-}
-
-@keyframes blobFloat {
+@keyframes photo-drift {
   0%,
   100% {
-    transform: translate3d(0, 0, 0);
+    translate: 0 0;
   }
 
   50% {
-    transform: translate3d(2rem, -1.5rem, 0);
+    translate: 0 -9px;
+  }
+}
+
+@keyframes memory-ribbon {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes record-spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -110,6 +113,7 @@ select {
   *,
   *::before,
   *::after {
+    scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

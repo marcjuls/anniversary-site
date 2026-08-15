@@ -1,4 +1,3 @@
-import "./App.css";
 import Hero from "./components/Hero";
 import Timeline from "./components/Timeline";
 import LoveLetter from "./components/LoveLetter";
@@ -7,7 +6,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <main className="site-shell">
+    <main className="min-h-screen overflow-hidden bg-midnight text-pearl">
       <Hero />
       <Timeline />
       <LoveLetter />
