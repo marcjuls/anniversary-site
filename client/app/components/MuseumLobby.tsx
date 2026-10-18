@@ -10,7 +10,7 @@ export default function MuseumLobby({ rooms }: { rooms: MuseumRoom[] }) {
   return (
     <main className="museum-shell">
       <header className="museum-nav">
-        <Link className="wordmark" href="/"><span>M</span> Museum of Us</Link>
+        <Link className="wordmark" href="/museum"><span>M</span> Museum of Us</Link>
         <div className="museum-nav__meta">
           <span>Private collection</span>
           <form action={lockMuseum}>
@@ -50,8 +50,8 @@ export default function MuseumLobby({ rooms }: { rooms: MuseumRoom[] }) {
           <p className="eyebrow">Now showing · Special Exhibition No. 01</p>
           <h2 id="special-exhibit-title">Ten Ways of Seeing You</h2>
           <p>
-            A portrait study outside the monthly timeline—ten photographs,
-            gathered into one private room of glances, light, and quiet details.
+            A portrait study awaiting its final place in the monthly timeline—ten
+            photographs gathered into one private room of glances and quiet details.
           </p>
           <Link className="special-exhibit__link" href="/exhibits/portrait-study">
             Enter the portrait exhibit <span aria-hidden="true">→</span>

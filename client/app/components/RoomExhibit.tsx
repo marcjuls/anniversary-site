@@ -17,7 +17,7 @@ export default function RoomExhibit({ room, previousSlug, nextSlug }: {
   return (
     <main className={`exhibit exhibit--${room.motif}`} style={style}>
       <nav className="exhibit-nav" aria-label="Exhibition navigation">
-        <Link href="/">← Museum map</Link><span>Room {room.slug} of 25</span><span>{room.dateLabel}</span>
+        <Link href="/museum">← Museum map</Link><span>Room {room.slug} of 25</span><span>{room.dateLabel}</span>
       </nav>
 
       <section className="exhibit-stage" aria-labelledby="exhibit-title">
@@ -53,7 +53,7 @@ export default function RoomExhibit({ room, previousSlug, nextSlug }: {
 
       <footer className="room-pagination">
         {previousSlug ? <Link href={`/rooms/${previousSlug}`}>← Previous room</Link> : <span />}
-        <Link href="/">Museum directory</Link>
+        <Link href="/museum">Museum directory</Link>
         {nextSlug ? <Link href={`/rooms/${nextSlug}`}>Next room →</Link> : <span />}
       </footer>
     </main>
