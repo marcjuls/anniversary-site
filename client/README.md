@@ -12,13 +12,15 @@ monthly exhibit receives its own visual direction.
 - Future rooms shown as closed exhibitions
 - Room openings follow midnight in Asia/Manila
 - Responsive and reduced-motion-friendly presentation
+- A standalone ten-frame portrait study served from private Vercel Blob storage
 
 ## Local setup
 
 1. Copy `.env.example` to `.env.local`.
 2. Set `MUSEUM_ACCESS_CODE` to the private invitation code.
 3. Set `MUSEUM_SESSION_SECRET` to a random value of at least 32 characters.
-4. Run `npm install` and `npm run dev`.
+4. Set `BLOB_READ_WRITE_TOKEN` to a token for the private portrait Blob store.
+5. Run `npm install` and `npm run dev`.
 
 Do not commit real secret values. The same variables must be configured in the
 Vercel project before deployment.
@@ -33,5 +35,6 @@ not be used.
 
 The old public media has been moved to `legacy-media/` so it is not served by
 the application. Because the GitHub repository is currently public, new private
-photos and audio must not be committed here. They will be added through a
-private media delivery path when the final exhibits are curated.
+photos and audio must not be committed here. Portrait files live in a private
+Vercel Blob store and are streamed only through an authenticated, allowlisted
+route after a visitor has unlocked the museum.
