@@ -91,7 +91,7 @@ export default function MuseumLobby({ rooms }: { rooms: MuseumRoom[] }) {
                   <time dateTime={room.date}>{room.dateLabel}</time>
                 </div>
                 <span className="room-card__status">
-                  {room.status === "future" ? "Closed" : room.status === "current" ? "Now showing" : "Awaiting memories"}
+                  {room.status === "future" ? "Closed" : room.status === "current" ? "Now showing" : room.roomNumber === 1 ? "Curated · 3 photographs" : "Awaiting memories"}
                 </span>
               </>
             );
