@@ -46,6 +46,16 @@ const designs = [
   ["Second-Year Grand Hall", "A future landmark room reserved for the second anniversary.", "grand-hall", "#200e18", "#f6eadc", "#d7aa59", "#311421"],
 ] as const;
 
+const MANILA_UTC_OFFSET_MS = 8 * 60 * 60 * 1_000;
+
+function roomDateTimestamp(index: number) {
+  return Date.UTC(2025, 3 + index, 6);
+}
+
+function roomOpeningTimestamp(index: number) {
+  return roomDateTimestamp(index) - MANILA_UTC_OFFSET_MS;
+}
+
 function ordinal(value: number) {
   const mod100 = value % 100;
   if (mod100 >= 11 && mod100 <= 13) return `${value}th`;
@@ -64,19 +74,14 @@ export function relationshipLabel(roomNumber: number) {
 }
 
 export function createMuseumRooms(referenceDate = new Date()): MuseumRoom[] {
-  const reference = Date.UTC(
-    referenceDate.getUTCFullYear(),
-    referenceDate.getUTCMonth(),
-    referenceDate.getUTCDate(),
-  );
+  const reference = referenceDate.getTime();
   const newestOpenIndex = designs.reduce((latest, _design, index) => {
-    const exhibitDate = Date.UTC(2025, 3 + index, 6);
-    return exhibitDate <= reference ? index : latest;
+    return roomOpeningTimestamp(index) <= reference ? index : latest;
   }, -1);
 
   return designs.map((design, index) => {
     const roomNumber = index + 1;
-    const date = new Date(Date.UTC(2025, 3 + index, 6));
+    const date = new Date(roomDateTimestamp(index));
 
     return {
       roomNumber,

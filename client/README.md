@@ -10,6 +10,7 @@ monthly exhibit receives its own visual direction.
 - Twenty-five room records through the second anniversary
 - Individual room routes with provisional, distinct visual concepts
 - Future rooms shown as closed exhibitions
+- Room openings follow midnight in Asia/Manila
 - Responsive and reduced-motion-friendly presentation
 
 ## Local setup
