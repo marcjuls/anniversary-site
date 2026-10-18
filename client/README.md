@@ -22,6 +22,12 @@ monthly exhibit receives its own visual direction.
 Do not commit real secret values. The same variables must be configured in the
 Vercel project before deployment.
 
+## Vercel
+
+Use the Next.js framework preset with `client` as the root directory. Leave the
+output directory on its framework default; the old Vite `dist` override must
+not be used.
+
 ## Private media
 
 The old public media has been moved to `legacy-media/` so it is not served by
