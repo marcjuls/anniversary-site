@@ -1,73 +1,37 @@
-# React + TypeScript + Vite
+# The Museum of Us
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A private, mobile-first anniversary museum. April 6, 2025 is Room 01, and each
+monthly exhibit receives its own visual direction.
 
-Currently, two official plugins are available:
+## Foundation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Password foyer backed by an encrypted, HTTP-only session cookie
+- Museum lobby and live relationship clock
+- Twenty-five room records through the second anniversary
+- Individual room routes with provisional, distinct visual concepts
+- Future rooms shown as closed exhibitions
+- Room openings follow midnight in Asia/Manila
+- Responsive and reduced-motion-friendly presentation
 
-## React Compiler
+## Local setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Copy `.env.example` to `.env.local`.
+2. Set `MUSEUM_ACCESS_CODE` to the private invitation code.
+3. Set `MUSEUM_SESSION_SECRET` to a random value of at least 32 characters.
+4. Run `npm install` and `npm run dev`.
 
-## Expanding the ESLint configuration
+Do not commit real secret values. The same variables must be configured in the
+Vercel project before deployment.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Vercel
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Use the Next.js framework preset with `client` as the root directory. Leave the
+output directory on its framework default; the old Vite `dist` override must
+not be used.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Private media
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The old public media has been moved to `legacy-media/` so it is not served by
+the application. Because the GitHub repository is currently public, new private
+photos and audio must not be committed here. They will be added through a
+private media delivery path when the final exhibits are curated.

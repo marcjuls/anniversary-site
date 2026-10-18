@@ -10,7 +10,16 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.next
+.vercel
+.env
+.env.*
+!.env.example
 *.local
+
+# Never commit new private museum media to this public repository.
+private-media/*
+!private-media/README.md
 
 # Editor directories and files
 .vscode/*
