@@ -8,11 +8,13 @@ monthly exhibit receives its own visual direction.
 - Password foyer backed by an encrypted, HTTP-only session cookie
 - Museum lobby and live relationship clock
 - Twenty-five room records through the second anniversary
-- Individual room routes with provisional, distinct visual concepts
+- Individual room routes with distinct visual concepts and curated photography
 - Future rooms shown as closed exhibitions
 - Room openings follow midnight in Asia/Manila
 - Responsive and reduced-motion-friendly presentation
 - A standalone twenty-four-frame portrait study served from private Vercel Blob storage
+- Seventy-five photographs distributed across the nineteen currently open rooms
+- The bouquet portrait featured in Room 13, the April 6, 2026 anniversary room
 
 ## Local setup
 
@@ -35,6 +37,6 @@ not be used.
 
 The old public media has been moved to `legacy-media/` so it is not served by
 the application. Because the GitHub repository is currently public, new private
-photos and audio must not be committed here. Portrait files live in a private
-Vercel Blob store and are streamed only through an authenticated, allowlisted
-route after a visitor has unlocked the museum.
+photos and audio must not be committed here. Portrait and room files live in a
+private Vercel Blob store and are streamed only through authenticated,
+allowlisted routes after a visitor has unlocked the museum.
