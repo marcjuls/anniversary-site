@@ -1,5 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 import RoomExhibit from "../../components/RoomExhibit";
+import RoomOneExhibit from "../../components/RoomOneExhibit";
 import { createMuseumRooms, findMuseumRoom } from "../../data/rooms";
 import { isMuseumUnlocked } from "../../lib/session";
 
@@ -12,6 +13,7 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
   const rooms = createMuseumRooms();
   const room = findMuseumRoom(slug, rooms);
   if (!room || room.status === "future") notFound();
+  if (room.slug === "01") return <RoomOneExhibit />;
 
   const index = rooms.findIndex((item) => item.slug === slug);
   const previousSlug = rooms[index - 1]?.slug;

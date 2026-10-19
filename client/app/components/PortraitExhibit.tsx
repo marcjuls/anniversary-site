@@ -30,8 +30,8 @@ export default function PortraitExhibit() {
   return (
     <main className="portrait-exhibit">
       <nav className="portrait-nav" aria-label="Portrait exhibition navigation">
-        <Link href="/">← Museum map</Link>
-        <span>Special exhibition · Ten portraits</span>
+        <Link href="/museum">← Museum map</Link>
+        <span>Uncatalogued exhibit · Ten portraits</span>
         <span>Private collection</span>
       </nav>
 
@@ -104,7 +104,7 @@ export default function PortraitExhibit() {
 
       <footer className="portrait-footer">
         <p>Special Exhibition No. 01 · Ten Ways of Seeing You</p>
-        <Link href="/">Return to the museum →</Link>
+        <Link href="/museum">Return to the museum →</Link>
       </footer>
     </main>
   );

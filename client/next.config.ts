@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  outputFileTracingIncludes: {
+    "/api/legacy-media/\\[category\\]/\\[filename\\]": ["./legacy-media/**/*"],
+  },
   async headers() {
     return [
       {
