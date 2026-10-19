@@ -11,12 +11,18 @@ describe("room photo manifest", () => {
     expect(roomOnePhotos).toHaveLength(3);
   });
 
-  it("curates four archive photographs for every other open room", () => {
+  it("curates the archive photographs across every open room", () => {
     expect(Object.keys(roomPhotosBySlug)).toHaveLength(19);
-    expect(Object.values(roomPhotosBySlug).flat()).toHaveLength(75);
-    for (const slug of Object.keys(roomPhotosBySlug).filter((value) => value !== "01")) {
+    expect(Object.values(roomPhotosBySlug).flat()).toHaveLength(74);
+    for (const slug of Object.keys(roomPhotosBySlug).filter(
+      (value) => value !== "01" && value !== "19",
+    )) {
       expect(roomPhotosBySlug[slug]).toHaveLength(4);
     }
+    expect(roomPhotosBySlug["19"]).toHaveLength(3);
+    expect(roomPhotosBySlug["19"].some((photo) => photo.filename === "portrait-15.jpg")).toBe(
+      false,
+    );
   });
 
   it("features the flower portrait in the April 6, 2026 anniversary room", () => {
