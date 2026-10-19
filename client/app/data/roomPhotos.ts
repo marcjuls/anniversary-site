@@ -160,7 +160,6 @@ export const roomPhotosBySlug: Readonly<Record<string, readonly RoomPhoto[]>> = 
     ["room-18-04.jpeg", 720, 960, "room"],
   ]),
   "19": curate("19", [
-    ["portrait-15.jpg", 2592, 1944, "portrait"],
     ["room-19-02.jpeg", 1944, 2592, "room"],
     ["room-19-03.jpeg", 720, 960, "room"],
     ["room-19-04.jpeg", 1536, 2048, "room"],
