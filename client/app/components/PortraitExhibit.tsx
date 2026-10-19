@@ -60,13 +60,13 @@ export default function PortraitExhibit() {
     <main className="portrait-exhibit">
       <nav className="portrait-nav" aria-label="Portrait exhibition navigation">
         <Link href="/museum">← Museum map</Link>
-        <span>Uncatalogued exhibit · Twenty-four portraits</span>
+        <span>Uncatalogued exhibit · Twenty-three portraits</span>
         <span>Private collection</span>
       </nav>
 
       <header className="portrait-hero" aria-labelledby="portrait-title">
         <div className="portrait-hero__copy">
-          <p className="eyebrow">A portrait study in twenty-four frames</p>
+          <p className="eyebrow">A portrait study in twenty-three frames</p>
           <h1 id="portrait-title">Ways of<br />Seeing <em>You</em></h1>
           <p className="portrait-intro">
             Held apart from the calendar and gathered as one complete study:
@@ -79,14 +79,14 @@ export default function PortraitExhibit() {
           <PortraitImage portrait={portraits[10]} priority />
           <figcaption><span>Plate 11</span><span>Opening portrait</span></figcaption>
         </figure>
-        <span className="portrait-hero__mark" aria-hidden="true">24</span>
+        <span className="portrait-hero__mark" aria-hidden="true">23</span>
       </header>
 
       <section className="portrait-prologue" id="the-study" aria-label="Exhibition introduction">
         <p className="eyebrow">Curator’s note</p>
         <blockquote>“Not a timeline.<br />A constellation.”</blockquote>
         <p>
-          Chosen from eighty-seven photographs, these twenty-four belong together
+          Chosen from eighty-seven photographs, these twenty-three belong together
           because each one remembers a different kind of light.
         </p>
       </section>
@@ -96,7 +96,7 @@ export default function PortraitExhibit() {
         kicker="Chapter I · Open air"
         title="Where the light found you"
         copy="Water, gardens, sunlight, and a little color—portraits that feel like an open window."
-        ids={["12", "14", "16", "17", "21", "22"]}
+        ids={["12", "14", "15", "16", "20", "21"]}
       />
 
       <Chapter
@@ -104,7 +104,7 @@ export default function PortraitExhibit() {
         kicker="Chapter II · Reflections"
         title="The looking glass"
         copy="Five self-portraits meet across the room: a pause, a glance, a private stage."
-        ids={["05", "07", "13", "20", "23"]}
+        ids={["05", "07", "13", "19", "22"]}
       />
 
       <Chapter
@@ -112,7 +112,7 @@ export default function PortraitExhibit() {
         kicker="Chapter III · Close studies"
         title="Near enough to notice"
         copy="When the frame moves closer, an expression becomes the whole landscape."
-        ids={["01", "02", "03", "04", "08", "15"]}
+        ids={["01", "02", "03", "04", "08"]}
       />
 
       <Chapter
@@ -120,12 +120,12 @@ export default function PortraitExhibit() {
         kicker="Chapter IV · Familiar scenes"
         title="A small film of you"
         copy="School halls, car windows, soft smiles, and black-and-white frames—the everyday made cinematic."
-        ids={["06", "09", "10", "18", "19", "24"]}
+        ids={["06", "09", "10", "17", "18", "23"]}
       />
 
       <section className="portrait-finale" aria-labelledby="finale-title">
         <div className="portrait-finale__copy">
-          <p className="eyebrow">Final wall · All twenty-four</p>
+          <p className="eyebrow">Final wall · All twenty-three</p>
           <h2 id="finale-title">Still looking.<br />Still choosing you.</h2>
           <p>The exhibit ends without assigning a date. When the months are known, each memory can find its permanent room.</p>
         </div>
@@ -140,7 +140,7 @@ export default function PortraitExhibit() {
       </section>
 
       <footer className="portrait-footer">
-        <p>Special Exhibition No. 01 · Twenty-Four Ways of Seeing You</p>
+        <p>Special Exhibition No. 01 · Twenty-Three Ways of Seeing You</p>
         <Link href="/museum">Return to the museum →</Link>
       </footer>
     </main>
