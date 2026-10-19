@@ -164,6 +164,14 @@ export const roomPhotosBySlug: Readonly<Record<string, readonly RoomPhoto[]>> = 
     ["room-19-03.jpeg", 720, 960, "room"],
     ["room-19-04.jpeg", 1536, 2048, "room"],
   ]),
+  "20": curate("20", [
+    ["room-20-01.jpg", 1152, 1536, "room"],
+    ["room-20-02.jpg", 1152, 1536, "room"],
+    ["room-20-03.jpg", 1152, 1536, "room"],
+    ["room-20-04.jpg", 1152, 1536, "room"],
+    ["room-20-05.jpg", 1152, 1536, "room"],
+    ["room-20-06.jpg", 1152, 1536, "room"],
+  ]),
 } as const;
 
 const roomFilenames = new Set(

@@ -12,8 +12,9 @@ monthly exhibit receives its own visual direction.
 - Future rooms shown as closed exhibitions
 - Room openings follow midnight in Asia/Manila
 - Responsive and reduced-motion-friendly presentation
-- A standalone twenty-four-frame portrait study served from private Vercel Blob storage
+- A standalone twenty-three-frame portrait study served from private Vercel Blob storage
 - Seventy-four photographs distributed across the nineteen currently open rooms
+- Six private photographs prepared for Room 20, opening November 6, 2026
 - The bouquet portrait featured in Room 13, the April 6, 2026 anniversary room
 
 ## Local setup

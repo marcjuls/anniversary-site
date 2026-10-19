@@ -58,7 +58,7 @@ export default function RoomExhibit({ room, previousSlug, nextSlug }: {
         <aside className="museum-label">
           <span>Permanent collection</span><h2>Room concept</h2>
           <p>
-            Four private photographs were selected from the archive and composed
+            Private photographs were selected from the archive and composed
             around this room&apos;s atmosphere, palette, and visual language.
           </p>
           <dl>
