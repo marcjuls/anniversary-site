@@ -43,6 +43,21 @@ describe("museum room timeline", () => {
     });
   });
 
+  it("keeps Room 20 closed until midnight in Manila on November 6, 2026", () => {
+    const roomsBeforeOpening = createMuseumRooms(new Date("2026-11-05T15:59:59.999Z"));
+    const roomsAtOpening = createMuseumRooms(new Date("2026-11-05T16:00:00.000Z"));
+
+    expect(roomsBeforeOpening[19]).toMatchObject({
+      date: "2026-11-06",
+      status: "future",
+    });
+    expect(roomsAtOpening[19]).toMatchObject({
+      date: "2026-11-06",
+      relationshipLabel: "19th Monthsary",
+      status: "current",
+    });
+  });
+
   it("reserves rooms through the second anniversary", () => {
     const roomsBeforeSecondAnniversary = createMuseumRooms(new Date("2027-04-05T00:00:00Z"));
     expect(roomsBeforeSecondAnniversary).toHaveLength(25);

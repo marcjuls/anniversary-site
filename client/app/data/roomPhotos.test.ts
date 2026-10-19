@@ -12,16 +12,20 @@ describe("room photo manifest", () => {
   });
 
   it("curates the archive photographs across every open room", () => {
-    expect(Object.keys(roomPhotosBySlug)).toHaveLength(19);
-    expect(Object.values(roomPhotosBySlug).flat()).toHaveLength(74);
+    expect(Object.keys(roomPhotosBySlug)).toHaveLength(20);
+    expect(Object.values(roomPhotosBySlug).flat()).toHaveLength(80);
     for (const slug of Object.keys(roomPhotosBySlug).filter(
-      (value) => value !== "01" && value !== "19",
+      (value) => value !== "01" && value !== "19" && value !== "20",
     )) {
       expect(roomPhotosBySlug[slug]).toHaveLength(4);
     }
     expect(roomPhotosBySlug["19"]).toHaveLength(3);
     expect(roomPhotosBySlug["19"].some((photo) => photo.filename === "portrait-15.jpg")).toBe(
       false,
+    );
+    expect(roomPhotosBySlug["20"]).toHaveLength(6);
+    expect(roomPhotosBySlug["20"].every((photo) => photo.filename.startsWith("room-20-"))).toBe(
+      true,
     );
   });
 
@@ -35,6 +39,7 @@ describe("room photo manifest", () => {
   it("only permits the new private room file", () => {
     expect(isRoomPhotoFilename(roomOnePhotos[0].filename)).toBe(true);
     expect(isRoomPhotoFilename("room-19-04.jpeg")).toBe(true);
+    expect(isRoomPhotoFilename("room-20-06.jpg")).toBe(true);
     expect(isRoomPhotoFilename("../room-01.jpg")).toBe(false);
     expect(isRoomPhotoFilename("portrait-08.jpg")).toBe(false);
   });
