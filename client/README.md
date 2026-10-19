@@ -13,7 +13,7 @@ monthly exhibit receives its own visual direction.
 - Room openings follow midnight in Asia/Manila
 - Responsive and reduced-motion-friendly presentation
 - A standalone twenty-four-frame portrait study served from private Vercel Blob storage
-- Seventy-five photographs distributed across the nineteen currently open rooms
+- Seventy-four photographs distributed across the nineteen currently open rooms
 - The bouquet portrait featured in Room 13, the April 6, 2026 anniversary room
 
 ## Local setup
