@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import { roomPhotosBySlug, roomPhotoSource } from "../data/roomPhotos";
 import type { MuseumRoom } from "../data/rooms";
 
 export default function RoomExhibit({ room, previousSlug, nextSlug }: {
@@ -13,6 +15,7 @@ export default function RoomExhibit({ room, previousSlug, nextSlug }: {
     "--room-accent": room.palette.accent,
     "--room-ink": room.palette.ink,
   } as CSSProperties;
+  const photos = roomPhotosBySlug[room.slug] ?? [];
 
   return (
     <main className={`exhibit exhibit--${room.motif}`} style={style}>
@@ -28,25 +31,41 @@ export default function RoomExhibit({ room, previousSlug, nextSlug }: {
           <p>{room.description}</p>
         </div>
 
-        <div className="empty-frame">
-          <div className="empty-frame__inner">
-            <span aria-hidden="true">✦</span>
-            <p>This wall is reserved for your photographs.</p>
-            <small>Exhibit curation begins when the memories arrive.</small>
-          </div>
+        <div className={`room-collection room-collection--${room.motif}`}>
+          {photos.map((photo, index) => (
+            <figure className="room-collection__frame" key={photo.id}>
+              <Image
+                alt={photo.alt}
+                height={photo.height}
+                priority={index === 0}
+                sizes="(max-width: 760px) 88vw, (max-width: 1100px) 42vw, 30vw"
+                src={roomPhotoSource(photo)}
+                unoptimized
+                width={photo.width}
+              />
+              <figcaption>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>
+                  {room.slug === "13" && index === 0
+                    ? "Anniversary flowers"
+                    : `Study ${String(index + 1).padStart(2, "0")}`}
+                </strong>
+              </figcaption>
+            </figure>
+          ))}
         </div>
 
         <aside className="museum-label">
           <span>Permanent collection</span><h2>Room concept</h2>
           <p>
-            This room already has its own atmosphere and visual direction. Its
-            final layout, captions, music, and interactions will be composed
-            around the real memories from this month.
+            Four private photographs were selected from the archive and composed
+            around this room&apos;s atmosphere, palette, and visual language.
           </p>
           <dl>
             <div><dt>Date</dt><dd>{room.dateLabel}</dd></div>
             <div><dt>Theme</dt><dd>{room.designName}</dd></div>
-            <div><dt>Status</dt><dd>Awaiting curation</dd></div>
+            <div><dt>Collection</dt><dd>{photos.length} photographs</dd></div>
+            <div><dt>Status</dt><dd>Curated</dd></div>
           </dl>
         </aside>
       </section>
