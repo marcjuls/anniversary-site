@@ -9,7 +9,7 @@ function PortraitImage({ portrait, priority = false }: { portrait: Portrait; pri
       className="portrait-image"
       height={portrait.height}
       priority={priority}
-      sizes="(max-width: 720px) 100vw, (max-width: 1100px) 70vw, 50vw"
+      sizes="(max-width: 720px) 92vw, (max-width: 1100px) 58vw, 42vw"
       src={portraitSource(portrait.filename)}
       unoptimized
       width={portrait.width}
@@ -17,12 +17,41 @@ function PortraitImage({ portrait, priority = false }: { portrait: Portrait; pri
   );
 }
 
-function Frame({ portrait, className = "" }: { portrait: Portrait; className?: string }) {
+function Frame({ portrait }: { portrait: Portrait }) {
   return (
-    <figure className={`portrait-frame ${className}`}>
+    <figure className="portrait-frame">
       <PortraitImage portrait={portrait} />
-      <figcaption><span>{portrait.id}</span><span>From the private collection</span></figcaption>
+      <figcaption><span>Plate {portrait.id}</span><span>Private collection</span></figcaption>
     </figure>
+  );
+}
+
+function Chapter({
+  className,
+  kicker,
+  title,
+  copy,
+  ids,
+}: {
+  className: string;
+  kicker: string;
+  title: string;
+  copy: string;
+  ids: readonly string[];
+}) {
+  const selected = ids.map((id) => portraits.find((portrait) => portrait.id === id));
+
+  if (selected.some((portrait) => !portrait)) return null;
+
+  return (
+    <section className={`portrait-chapter ${className}`} aria-labelledby={`${className}-title`}>
+      <div className="portrait-section-label">
+        <span>{kicker}</span>
+        <h2 id={`${className}-title`}>{title}</h2>
+        <p>{copy}</p>
+      </div>
+      {selected.map((portrait) => <Frame portrait={portrait as Portrait} key={portrait?.id} />)}
+    </section>
   );
 }
 
@@ -31,79 +60,87 @@ export default function PortraitExhibit() {
     <main className="portrait-exhibit">
       <nav className="portrait-nav" aria-label="Portrait exhibition navigation">
         <Link href="/museum">← Museum map</Link>
-        <span>Uncatalogued exhibit · Ten portraits</span>
+        <span>Uncatalogued exhibit · Twenty-four portraits</span>
         <span>Private collection</span>
       </nav>
 
       <header className="portrait-hero" aria-labelledby="portrait-title">
         <div className="portrait-hero__copy">
-          <p className="eyebrow">A portrait study in ten frames</p>
-          <h1 id="portrait-title">Ten Ways<br />of Seeing <em>You</em></h1>
+          <p className="eyebrow">A portrait study in twenty-four frames</p>
+          <h1 id="portrait-title">Ways of<br />Seeing <em>You</em></h1>
           <p className="portrait-intro">
             Held apart from the calendar and gathered as one complete study:
-            ten expressions, ten fragments of light, one unforgettable subject.
+            changing light, familiar expressions, and one unforgettable subject.
           </p>
           <a className="portrait-scroll" href="#the-study">Enter the study <span aria-hidden="true">↓</span></a>
         </div>
 
         <figure className="portrait-hero__frame">
-          <PortraitImage portrait={portraits[0]} priority />
-          <figcaption><span>Plate 01</span><span>Opening portrait</span></figcaption>
+          <PortraitImage portrait={portraits[10]} priority />
+          <figcaption><span>Plate 11</span><span>Opening portrait</span></figcaption>
         </figure>
-        <span className="portrait-hero__mark" aria-hidden="true">10</span>
+        <span className="portrait-hero__mark" aria-hidden="true">24</span>
       </header>
 
       <section className="portrait-prologue" id="the-study" aria-label="Exhibition introduction">
         <p className="eyebrow">Curator’s note</p>
-        <blockquote>“Not a timeline. A constellation.”</blockquote>
+        <blockquote>“Not a timeline.<br />A constellation.”</blockquote>
         <p>
-          These photographs belong together because they hold the same quiet
-          magic: the instant a camera stops recording a moment and starts
-          remembering a person.
+          Chosen from eighty-seven photographs, these twenty-four belong together
+          because each one remembers a different kind of light.
         </p>
       </section>
 
-      <section className="portrait-sequence portrait-sequence--light" aria-labelledby="light-title">
-        <div className="portrait-section-label">
-          <span>Sequence I · 02—04</span><h2 id="light-title">Passing light</h2>
-          <p>Three close studies, composed like frames from the same small film.</p>
-        </div>
-        <Frame portrait={portraits[1]} className="portrait-frame--wide" />
-        <Frame portrait={portraits[2]} className="portrait-frame--offset" />
-        <Frame portrait={portraits[3]} className="portrait-frame--quiet" />
-      </section>
+      <Chapter
+        className="portrait-chapter--sunlit"
+        kicker="Chapter I · Open air"
+        title="Where the light found you"
+        copy="Water, gardens, sunlight, and a little color—portraits that feel like an open window."
+        ids={["12", "14", "16", "17", "21", "22"]}
+      />
 
-      <section className="portrait-sequence portrait-sequence--mirrors" aria-labelledby="mirrors-title">
-        <div className="portrait-section-label portrait-section-label--light">
-          <span>Sequence II · 05 + 07</span><h2 id="mirrors-title">In the looking glass</h2>
-          <p>Two self-portraits meet across the room: a pause, a glance, a private stage.</p>
-        </div>
-        <Frame portrait={portraits[4]} className="portrait-frame--mirror-one" />
-        <Frame portrait={portraits[6]} className="portrait-frame--mirror-two" />
-        <span className="portrait-mirror-line" aria-hidden="true">Her, reflected</span>
-      </section>
+      <Chapter
+        className="portrait-chapter--mirrors"
+        kicker="Chapter II · Reflections"
+        title="The looking glass"
+        copy="Five self-portraits meet across the room: a pause, a glance, a private stage."
+        ids={["05", "07", "13", "20", "23"]}
+      />
 
-      <section className="portrait-sequence portrait-sequence--details" aria-labelledby="details-title">
-        <div className="portrait-section-label">
-          <span>Sequence III · 06 + 08 + 10</span><h2 id="details-title">Near enough to notice</h2>
-          <p>Expressions become the whole landscape when the frame moves closer.</p>
-        </div>
-        <Frame portrait={portraits[5]} className="portrait-frame--detail-one" />
-        <Frame portrait={portraits[7]} className="portrait-frame--detail-two" />
-        <Frame portrait={portraits[9]} className="portrait-frame--detail-three" />
-      </section>
+      <Chapter
+        className="portrait-chapter--near"
+        kicker="Chapter III · Close studies"
+        title="Near enough to notice"
+        copy="When the frame moves closer, an expression becomes the whole landscape."
+        ids={["01", "02", "03", "04", "08", "15"]}
+      />
+
+      <Chapter
+        className="portrait-chapter--film"
+        kicker="Chapter IV · Familiar scenes"
+        title="A small film of you"
+        copy="School halls, car windows, soft smiles, and black-and-white frames—the everyday made cinematic."
+        ids={["06", "09", "10", "18", "19", "24"]}
+      />
 
       <section className="portrait-finale" aria-labelledby="finale-title">
         <div className="portrait-finale__copy">
-          <p className="eyebrow">Final plate · 09</p>
-          <h2 id="finale-title">And then,<br />that smile.</h2>
-          <p>The last frame refuses to be formal. It leaves the exhibition exactly as love should: lighter than it arrived.</p>
+          <p className="eyebrow">Final wall · All twenty-four</p>
+          <h2 id="finale-title">Still looking.<br />Still choosing you.</h2>
+          <p>The exhibit ends without assigning a date. When the months are known, each memory can find its permanent room.</p>
         </div>
-        <Frame portrait={portraits[8]} className="portrait-frame--finale" />
+        <div className="portrait-contact" aria-label="All portraits in the special exhibition">
+          {portraits.map((portrait) => (
+            <figure key={portrait.id}>
+              <PortraitImage portrait={portrait} />
+              <figcaption>{portrait.id}</figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       <footer className="portrait-footer">
-        <p>Special Exhibition No. 01 · Ten Ways of Seeing You</p>
+        <p>Special Exhibition No. 01 · Twenty-Four Ways of Seeing You</p>
         <Link href="/museum">Return to the museum →</Link>
       </footer>
     </main>

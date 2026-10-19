@@ -45,20 +45,20 @@ export default function MuseumLobby({ rooms }: { rooms: MuseumRoom[] }) {
       </section>
 
       <section className="special-exhibit" aria-labelledby="special-exhibit-title">
-        <div className="special-exhibit__number" aria-hidden="true">10</div>
+        <div className="special-exhibit__number" aria-hidden="true">24</div>
         <div className="special-exhibit__copy">
           <p className="eyebrow">Now showing · Special Exhibition No. 01</p>
-          <h2 id="special-exhibit-title">Ten Ways of Seeing You</h2>
+          <h2 id="special-exhibit-title">Twenty-Four Ways of Seeing You</h2>
           <p>
-            A portrait study awaiting its final place in the monthly timeline—ten
-            photographs gathered into one private room of glances and quiet details.
+            A portrait study held apart from the monthly timeline—twenty-four
+            photographs gathered into one private room of light, mirrors, and quiet details.
           </p>
           <Link className="special-exhibit__link" href="/exhibits/portrait-study">
             Enter the portrait exhibit <span aria-hidden="true">→</span>
           </Link>
         </div>
         <div className="special-exhibit__art" aria-hidden="true">
-          <span>01</span><span>05</span><span>10</span>
+          <span>01</span><span>12</span><span>24</span>
         </div>
       </section>
 

@@ -12,7 +12,7 @@ monthly exhibit receives its own visual direction.
 - Future rooms shown as closed exhibitions
 - Room openings follow midnight in Asia/Manila
 - Responsive and reduced-motion-friendly presentation
-- A standalone ten-frame portrait study served from private Vercel Blob storage
+- A standalone twenty-four-frame portrait study served from private Vercel Blob storage
 
 ## Local setup
 

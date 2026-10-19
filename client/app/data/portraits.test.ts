@@ -2,14 +2,16 @@ import { describe, expect, it } from "vitest";
 import { isPortraitFilename, portraitSource, portraits } from "./portraits";
 
 describe("portrait exhibit manifest", () => {
-  it("contains the complete ten-frame exhibit", () => {
-    expect(portraits).toHaveLength(10);
-    expect(new Set(portraits.map((portrait) => portrait.filename)).size).toBe(10);
+  it("contains the complete twenty-four-frame exhibit", () => {
+    expect(portraits).toHaveLength(24);
+    expect(new Set(portraits.map((portrait) => portrait.filename)).size).toBe(24);
   });
 
   it("only permits known private portrait filenames", () => {
     expect(isPortraitFilename("portrait-01.jpg")).toBe(true);
     expect(isPortraitFilename("portrait-10.jpg")).toBe(true);
+    expect(isPortraitFilename("portrait-24.jpg")).toBe(true);
+    expect(isPortraitFilename("portrait-25.jpg")).toBe(false);
     expect(isPortraitFilename("../portrait-01.jpg")).toBe(false);
     expect(isPortraitFilename("anything-else.jpg")).toBe(false);
   });
