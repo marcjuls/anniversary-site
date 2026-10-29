@@ -7,8 +7,8 @@ const sans = Manrope({ subsets: ["latin"], variable: "--font-sans" });
 const mono = DM_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["300", "400", "500"] });
 
 export const metadata: Metadata = {
-  title: "Our Anniversary · The Museum of Us",
-  description: "A private anniversary love letter and a living museum of us.",
+  title: "Our Story",
+  description: "Our story has come to an end.",
   robots: { index: false, follow: false },
 };
 
