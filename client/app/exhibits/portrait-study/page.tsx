@@ -5,7 +5,7 @@ import { isMuseumUnlocked } from "../../lib/session";
 export const dynamic = "force-dynamic";
 
 export default async function PortraitStudyPage() {
-  if (!(await isMuseumUnlocked())) redirect("/");
+  if (!(await isMuseumUnlocked())) redirect("/museum");
 
   return <PortraitExhibit />;
 }

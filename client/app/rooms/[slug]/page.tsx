@@ -7,7 +7,7 @@ import { isMuseumUnlocked } from "../../lib/session";
 export const dynamic = "force-dynamic";
 
 export default async function RoomPage({ params }: { params: Promise<{ slug: string }> }) {
-  if (!(await isMuseumUnlocked())) redirect("/");
+  if (!(await isMuseumUnlocked())) redirect("/museum");
 
   const { slug } = await params;
   const rooms = createMuseumRooms();

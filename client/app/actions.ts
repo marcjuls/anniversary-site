@@ -33,7 +33,7 @@ export async function unlockMuseum(
 
   session.unlocked = true;
   await session.save();
-  redirect("/");
+  redirect(formData.get("destination") === "/museum" ? "/museum" : "/anniversary#countdown");
 }
 
 export async function lockMuseum() {
