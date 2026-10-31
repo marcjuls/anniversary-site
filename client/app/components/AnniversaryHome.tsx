@@ -193,7 +193,7 @@ export default function AnniversaryHome() {
             <a className="anniv-primary-button" href="#story">Begin our story <span aria-hidden="true">→</span></a>
             <p>every picture feels like a love letter ♡</p>
           </div>
-          <div className="anniv-clock">
+          <div className="anniv-clock" id="countdown">
             <p>Loving you since April 6, 2025</p>
             <dl aria-label="Time spent loving you">
               {[

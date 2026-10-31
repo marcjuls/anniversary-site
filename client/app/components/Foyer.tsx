@@ -5,7 +5,7 @@ import { unlockMuseum, type UnlockState } from "../actions";
 
 const initialState: UnlockState = { error: "" };
 
-export default function Foyer() {
+export default function Foyer({ destination = "/anniversary#countdown" }: { destination?: "/anniversary#countdown" | "/museum" }) {
   const [state, formAction, pending] = useActionState(unlockMuseum, initialState);
 
   return (
@@ -23,6 +23,7 @@ export default function Foyer() {
         </p>
 
         <form action={formAction} className="foyer-form">
+          <input type="hidden" name="destination" value={destination} />
           <label htmlFor="accessCode">Invitation code</label>
           <div className="code-entry">
             <input
@@ -35,7 +36,7 @@ export default function Foyer() {
               aria-describedby={state.error ? "access-error" : "access-note"}
             />
             <button type="submit" disabled={pending}>
-              {pending ? "Checking…" : "Enter museum"}
+              {pending ? "Checking…" : destination === "/museum" ? "Enter museum" : "Continue to website"}
             </button>
           </div>
           {state.error ? (
